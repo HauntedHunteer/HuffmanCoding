@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="huffman.CalculationController"
+            prefHeight="400.0" prefWidth="600.0">
+    <HBox>
+        <TextArea fx:id="plainText" HBox.hgrow="ALWAYS" promptText="tekst do zakodowania"/>
+        <TextArea fx:id="encoded" HBox.hgrow="ALWAYS" promptText="zakodowany tekst"/>
+    </HBox>
+    <HBox>
+        <Button fx:id="encode" text="Zakoduj"/>
+        <Button fx:id="defaultText" onAction="#setDefaultText" text="Tekst domyślny"/>
+    </HBox>
+    <HBox alignment="CENTER">
+        <Label fx:id="infLabel" text="Header" VBox.vgrow="NEVER" />
+    </HBox>
+</VBox>
