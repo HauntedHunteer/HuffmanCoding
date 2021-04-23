@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="graphLayout" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="huffman.GraphController"
+            fx:controller="huffman.controllers.GraphController"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>

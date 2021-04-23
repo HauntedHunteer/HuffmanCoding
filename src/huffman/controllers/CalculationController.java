@@ -1,4 +1,4 @@
-package huffman;
+package huffman.controllers;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;

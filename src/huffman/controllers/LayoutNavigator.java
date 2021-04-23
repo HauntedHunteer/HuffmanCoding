@@ -1,4 +1,4 @@
-package huffman;
+package huffman.controllers;
 
 import javafx.fxml.FXMLLoader;
 
@@ -7,8 +7,8 @@ import java.util.Objects;
 
 public class LayoutNavigator {
     public static final String MAIN = "../resources/MainLayout.fxml";
-    public static final String CALC = "../resources/CalculationLayout.fxml";
-    public static final String GRAPH = "../resources/GraphLayout.fxml";
+    public static final String CALC = "../../resources/CalculationLayout.fxml";
+    public static final String GRAPH = "../../resources/GraphLayout.fxml";
 
     private static MainLayoutController mainLayoutController;
 
