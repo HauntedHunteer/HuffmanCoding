@@ -15,7 +15,7 @@
         <TextArea fx:id="encoded" HBox.hgrow="ALWAYS" promptText="zakodowany tekst"/>
     </HBox>
     <HBox>
-        <Button fx:id="encode" text="Zakoduj"/>
+        <Button fx:id="encode" onAction="#encodeText" text="Zakoduj"/>
         <Button fx:id="defaultText" onAction="#setDefaultText" text="Tekst domyślny"/>
     </HBox>
     <HBox alignment="CENTER">
