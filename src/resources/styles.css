@@ -12,3 +12,7 @@
 #graphLayout {
     -fx-background-color: coral;
 }
+
+#infLabel {
+    -fx-text-fill: red;
+}

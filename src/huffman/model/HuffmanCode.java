@@ -86,6 +86,7 @@ public class HuffmanCode {
             tree.add(parentNode);
         }
         mapLetters(root, "");
+        System.out.println("Huffman code calculated");
     }
 
     private double log2(double x) {
@@ -100,6 +101,7 @@ public class HuffmanCode {
             double p = (double) entry.getValue() / size;
             entropy += p * log2( 1 / p);
         }
+        System.out.println("Entropy calculated");
         return entropy;
     }
 
@@ -111,6 +113,7 @@ public class HuffmanCode {
             double p = (double) entry.getValue() / size;
             averageWordLength += p * lettersWithCode.get(entry.getKey()).length();
         }
+        System.out.println("Average Word Length calculated");
         return averageWordLength;
     }
 }
