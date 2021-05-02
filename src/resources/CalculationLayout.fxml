@@ -17,14 +17,14 @@
       <Button fx:id="encodeButton" layoutX="14.0" layoutY="344.0" mnemonicParsing="false" onAction="#encodeText" text="Zakoduj" />
       <Button fx:id="defaultTextButton1" layoutX="80.0" layoutY="344.0" mnemonicParsing="false" onAction="#setDefaultText1" text="Tekst 1" />
       <Button fx:id="defaultTextButton2" layoutX="141.0" layoutY="344.0" mnemonicParsing="false" onAction="#setDefaultText2" text="Tekst 2" />
-      <TableView layoutX="259.0" layoutY="46.0" prefHeight="242.0" prefWidth="294.0">
+      <TableView fx:id="codingTableView" layoutX="259.0" layoutY="46.0" prefHeight="242.0" prefWidth="294.0">
           <placeholder>
               <Label text="Brak danych, zakoduj tekst" />
           </placeholder>
         <columns>
-          <TableColumn prefWidth="66.4000244140625" text="Znak" />
-          <TableColumn prefWidth="116.79998779296875" text="Liczba wystąpień" />
-            <TableColumn prefWidth="103.20001220703125" text="Kod znaku" />
+          <TableColumn fx:id="character" prefWidth="66.4000244140625" text="Znak" />
+          <TableColumn fx:id="frequency" prefWidth="116.79998779296875" text="Liczba wystąpień" />
+            <TableColumn fx:id="huffCode" prefWidth="103.20001220703125" text="Kod znaku" />
         </columns>
       </TableView>
       <Label layoutX="376.0" layoutY="23.0" prefHeight="18.0" prefWidth="54.0" text="Statystyki" />

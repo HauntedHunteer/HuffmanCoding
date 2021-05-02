@@ -2,16 +2,18 @@ package huffman.model;
 
 
 import java.util.*;
-
+// todo describe code here and in other files
 public class HuffmanCode {
     private final String textToCode;
-    private final Map<Character, String> lettersWithCode;
+    private final Map<Character, String> lettersWithCode; // todo letters -> characters
+    private final Map<Character, Integer> characterWithFrequency;
     private String encodedText;
     private HuffmanNode root;
 
     public HuffmanCode(String textToCode) {
         this.textToCode = textToCode;
         this.lettersWithCode = new HashMap<>();
+        this.characterWithFrequency = countLetterFrequency(textToCode);
         this.encodedText = "";
         this.root = null;
         huffmanCoding();
@@ -23,6 +25,10 @@ public class HuffmanCode {
 
     public Map<Character, String> getLettersWithCode() {
         return lettersWithCode;
+    } // todo refactor letter name -> inaccurate
+
+    public Map<Character, Integer> getCharacterWithFrequency() {
+        return characterWithFrequency;
     }
 
     public String getEncodedText() {
@@ -32,7 +38,6 @@ public class HuffmanCode {
     public HuffmanNode getRoot() {
         return root;
     }
-
 
     private void mapLetters(HuffmanNode root, String s) {
         if (root.getLeftNode() == null && root.getRightNode() == null ) {
@@ -58,11 +63,10 @@ public class HuffmanCode {
     }
 
     private void huffmanCoding() {
-        Map<Character, Integer> letterFrequency = countLetterFrequency(textToCode);
-        PriorityQueue<HuffmanNode> tree = new PriorityQueue<>(letterFrequency.size(),
+        PriorityQueue<HuffmanNode> tree = new PriorityQueue<>(characterWithFrequency.size(),
                 Comparator.comparingInt(HuffmanNode::getFrequency));
 
-        for (Map.Entry<Character, Integer> entry : letterFrequency.entrySet()) {
+        for (Map.Entry<Character, Integer> entry : characterWithFrequency.entrySet()) {
             HuffmanNode huffmanNode = new HuffmanNode(entry.getKey(), entry.getValue());
             tree.add(huffmanNode);
         }
@@ -94,10 +98,9 @@ public class HuffmanCode {
     }
 
     public double calculateEntropy() {
-        Map<Character, Integer> letterFrequency = countLetterFrequency(textToCode);
         int size = textToCode.length();
         double entropy = 0;
-        for (Map.Entry<Character, Integer> entry : letterFrequency.entrySet()) {
+        for (Map.Entry<Character, Integer> entry : characterWithFrequency.entrySet()) {
             double p = (double) entry.getValue() / size;
             entropy += p * log2( 1 / p);
         }
@@ -106,10 +109,9 @@ public class HuffmanCode {
     }
 
     public double calculateAverageWordLength() {
-        Map<Character, Integer> letterFrequency = countLetterFrequency(textToCode);
         int size = textToCode.length();
         double averageWordLength = 0;
-        for (Map.Entry<Character, Integer> entry : letterFrequency.entrySet()) {
+        for (Map.Entry<Character, Integer> entry : characterWithFrequency.entrySet()) {
             double p = (double) entry.getValue() / size;
             averageWordLength += p * lettersWithCode.get(entry.getKey()).length();
         }
