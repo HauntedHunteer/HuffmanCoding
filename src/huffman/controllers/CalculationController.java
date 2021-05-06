@@ -82,9 +82,9 @@ public class CalculationController implements Initializable {
                 tableDataList.add(
                         new HuffmanDataRow(
                                 String.valueOf(entry.getKey()),
-                                String.valueOf(huffmanCode
+                                huffmanCode
                                         .getCharacterWithFrequency()
-                                        .get(entry.getKey())),
+                                        .get(entry.getKey()),
                                 entry.getValue()
                         )
                 );
