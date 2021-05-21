@@ -1,18 +1,17 @@
 package huffman.model;
 
-
 import java.util.*;
-// todo describe code here and in other files
+
 public class HuffmanCode {
     private final String textToCode;
-    private final Map<Character, String> lettersWithCode; // todo letters -> characters
+    private final Map<Character, String> charactersWithCode;
     private final Map<Character, Integer> characterWithFrequency;
     private String encodedText;
     private HuffmanNode root;
 
     public HuffmanCode(String textToCode) {
         this.textToCode = textToCode;
-        this.lettersWithCode = new HashMap<>();
+        this.charactersWithCode = new HashMap<>();
         this.characterWithFrequency = countLetterFrequency(textToCode);
         this.encodedText = "";
         this.root = null;
@@ -23,9 +22,9 @@ public class HuffmanCode {
         return textToCode;
     }
 
-    public Map<Character, String> getLettersWithCode() {
-        return lettersWithCode;
-    } // todo refactor letter name -> inaccurate
+    public Map<Character, String> getCharactersWithCode() {
+        return charactersWithCode;
+    }
 
     public Map<Character, Integer> getCharacterWithFrequency() {
         return characterWithFrequency;
@@ -41,7 +40,7 @@ public class HuffmanCode {
 
     private void mapLetters(HuffmanNode root, String s) {
         if (root.getLeftNode() == null && root.getRightNode() == null ) {
-            lettersWithCode.put(root.getCharacter(), s);
+            charactersWithCode.put(root.getCharacter(), s);
             encodedText += s;
             return;
         }
@@ -72,7 +71,7 @@ public class HuffmanCode {
         }
 
         if (tree.size() == 1) {
-            root = new HuffmanNode(tree.peek().getCharacter(), tree.peek().getFrequency());
+            root = new HuffmanNode(tree.peek().getCharacter(), Objects.requireNonNull(tree.peek()).getFrequency());
         }
 
         while (tree.size() > 1) {
@@ -81,7 +80,7 @@ public class HuffmanCode {
 
 
             HuffmanNode parentNode = new HuffmanNode('-',
-                    firstChild.getFrequency() + secondChild.getFrequency());
+                    firstChild.getFrequency() + Objects.requireNonNull(secondChild).getFrequency());
             parentNode.setLeftNode(firstChild);
             parentNode.setRightNode(secondChild);
 
@@ -113,7 +112,7 @@ public class HuffmanCode {
         double averageWordLength = 0;
         for (Map.Entry<Character, Integer> entry : characterWithFrequency.entrySet()) {
             double p = (double) entry.getValue() / size;
-            averageWordLength += p * lettersWithCode.get(entry.getKey()).length();
+            averageWordLength += p * charactersWithCode.get(entry.getKey()).length();
         }
         System.out.println("Average Word Length calculated");
         return averageWordLength;

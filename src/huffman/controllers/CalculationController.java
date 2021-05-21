@@ -17,29 +17,29 @@ import java.util.ResourceBundle;
 public class CalculationController implements Initializable {
     private final ObservableList<HuffmanDataRow> tableDataList = FXCollections.observableArrayList();
     @FXML
-    public Button encodeButton; // todo refactor this to private
+    private Button encodeButton;
     @FXML
-    public Button defaultTextButton1;
+    private Button defaultTextButton1;
     @FXML
-    public Button defaultTextButton2;
+    private Button defaultTextButton2;
     @FXML
-    public TextArea inputText;
+    private TextArea inputText;
     @FXML
-    public TextArea outputText;
+    private TextArea outputText;
     @FXML
-    public Label infLabel;
+    private Label infLabel;
     @FXML
-    public TextField entropyTextField;
+    private TextField entropyTextField;
     @FXML
-    public TextField averageWordLengthTextField;
+    private TextField averageWordLengthTextField;
     @FXML
-    public TableView<HuffmanDataRow> codingTableView;
+    private TableView<HuffmanDataRow> codingTableView;
     @FXML
-    public TableColumn<HuffmanDataRow, String> character;
+    private TableColumn<HuffmanDataRow, String> character;
     @FXML
-    public TableColumn<HuffmanDataRow, String> frequency;
+    private TableColumn<HuffmanDataRow, String> frequency;
     @FXML
-    public TableColumn<HuffmanDataRow, String> huffCode;
+    private TableColumn<HuffmanDataRow, String> huffCode;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -78,7 +78,7 @@ public class CalculationController implements Initializable {
             codingTableView.getItems().clear();
             codingTableView.setItems(tableDataList);
 
-            for (Map.Entry<Character, String> entry : huffmanCode.getLettersWithCode().entrySet()) {
+            for (Map.Entry<Character, String> entry : huffmanCode.getCharactersWithCode().entrySet()) {
                 tableDataList.add(
                         new HuffmanDataRow(
                                 String.valueOf(entry.getKey()),

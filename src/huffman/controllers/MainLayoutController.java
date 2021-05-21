@@ -10,13 +10,13 @@ import javafx.scene.layout.VBox;
 
 public class MainLayoutController {
     @FXML
-    public VBox mainLayout;
+    private VBox mainLayout;
     @FXML
-    public Button coding;
+    private Button coding;
     @FXML
-    public Button graph;
+    private Button graph;
     @FXML
-    public StackPane subLayout;
+    private StackPane subLayout;
 
     public void setLayout(Node node) {
         subLayout.getChildren().setAll(node);
