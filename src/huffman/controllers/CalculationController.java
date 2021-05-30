@@ -79,9 +79,17 @@ public class CalculationController implements Initializable {
             codingTableView.setItems(tableDataList);
 
             for (Map.Entry<Character, String> entry : huffmanCode.getCharactersWithCode().entrySet()) {
+                String inputCharacter = String.valueOf(entry.getKey());
+                if (inputCharacter.equals(" ")) {
+                    inputCharacter = "space";
+                } else if (inputCharacter.equals("\n")) {
+                    inputCharacter = "enter";
+                } else if (inputCharacter.equals("\t")) {
+                    inputCharacter = "tab";
+                }
                 tableDataList.add(
                         new HuffmanDataRow(
-                                String.valueOf(entry.getKey()),
+                                inputCharacter,
                                 huffmanCode
                                         .getCharacterWithFrequency()
                                         .get(entry.getKey()),
